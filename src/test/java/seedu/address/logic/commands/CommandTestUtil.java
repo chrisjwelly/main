@@ -45,8 +45,8 @@ public class CommandTestUtil {
     public static final String VALID_FROM_BOB = "08-2018";
     public static final String VALID_TO_AMY = "05-2022";
     public static final String VALID_TO_BOB = "05-2023";
-    public static final double VALID_CAP_AMY = 4.5;
-    public static final double VALID_CAP_BOB = 4.4;
+    public static final String VALID_CAP_AMY = "4.5";
+    public static final String VALID_CAP_BOB = "4.4";
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_TAG_HUSBAND = "husband";

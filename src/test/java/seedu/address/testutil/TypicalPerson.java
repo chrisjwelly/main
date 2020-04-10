@@ -64,7 +64,7 @@ public class TypicalPerson {
             .withMajor(VALID_MAJOR_AMY)
             .withFrom(VALID_FROM_AMY)
             .withTo(VALID_TO_AMY)
-            .withCap(VALID_CAP_AMY)
+            .withCap(Double.parseDouble(VALID_CAP_AMY))
             .build();
 
     public static final Person BOB = new PersonBuilder().withDisplayPicture(VALID_DP_BOB)
@@ -78,7 +78,7 @@ public class TypicalPerson {
             .withMajor(VALID_MAJOR_BOB)
             .withFrom(VALID_FROM_BOB)
             .withTo(VALID_TO_BOB)
-            .withCap(VALID_CAP_BOB)
+            .withCap(Double.parseDouble(VALID_CAP_BOB))
             .build();
 
     /*
