@@ -25,12 +25,28 @@ import seedu.address.model.Model;
  */
 public class CommandTestUtil {
 
+    public static final String VALID_DP_AMY = "/images/amy.jpg";
+    public static final String VALID_DP_BOB = "/images/bob.png";
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
+    public static final String VALID_DESCRIPTION_AMY = "I am Bob's wife";
+    public static final String VALID_DESCRIPTION_BOB = "I am amy's husband";
     public static final String VALID_PHONE_AMY = "11111111";
     public static final String VALID_PHONE_BOB = "22222222";
     public static final String VALID_EMAIL_AMY = "amy@example.com";
     public static final String VALID_EMAIL_BOB = "bob@example.com";
+    public static final String VALID_GITHUB_AMY = "amychee";
+    public static final String VALID_GITHUB_BOB = "bobchoo";
+    public static final String VALID_UNIVERSITY_AMY = "National University of Singapore";
+    public static final String VALID_UNIVERSITY_BOB = "Nanyang Technological University";
+    public static final String VALID_MAJOR_AMY = "Computer Science";
+    public static final String VALID_MAJOR_BOB = "Information Systems";
+    public static final String VALID_FROM_AMY = "08-2019";
+    public static final String VALID_FROM_BOB = "08-2018";
+    public static final String VALID_TO_AMY = "05-2022";
+    public static final String VALID_TO_BOB = "05-2023";
+    public static final double VALID_CAP_AMY = 4.5;
+    public static final double VALID_CAP_BOB = 4.4;
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_TAG_HUSBAND = "husband";
