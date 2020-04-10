@@ -174,7 +174,7 @@ class JsonAdaptedPerson {
         final double modelCap;
         try {
             modelCap = Double.parseDouble(cap);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException|NullPointerException e) {
             throw new IllegalValueException("The cap field must be a numeric value");
         }
         if (modelCap > 5 || modelCap < 0) {

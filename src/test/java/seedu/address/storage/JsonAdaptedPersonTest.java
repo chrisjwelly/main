@@ -252,15 +252,14 @@ public class JsonAdaptedPersonTest {
                 jsonAdaptedPerson::toModelType);
     }
 
-    // TODO: Integrate this with Duong's CAP PR
-    /*
+    // TODO: Integrate the following two tests with Duong's CAP PR
     @Test
     public void toModelType_missingCap_throwsIllegalValueException() {
         JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
                 VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_PHONE_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
                 VALID_FROM_AMY, VALID_TO_AMY, null);
-        assertThrows(NullPointerException.class, // parseDouble(null) results in NPE
-                String.format(MISSING_FIELD_MESSAGE_FORMAT, "cap"),
+        assertThrows(IllegalValueException.class, // parseDouble(null) results in NPE
+                "The cap field must be a numeric value",
                 jsonAdaptedPerson::toModelType);
     }
 
@@ -270,8 +269,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
                 VALID_FROM_AMY, VALID_TO_AMY, INVALID_CAP);
         assertThrows(IllegalValueException.class,
-                "something",
+                "The cap value must be between 0.0 and 5.0 inclusive.",
                 jsonAdaptedPerson::toModelType);
     }
-     */
 }
