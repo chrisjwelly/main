@@ -151,7 +151,7 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE = "911a"; // 'a' is not allowed in phones
     public static final String INVALID_EMAIL = "example.com"; // missing @
     public static final String INVALID_DP = "/Users/Pictures/someone.gif"; // 'gif' extension not allowed
-    public static final String INVALID_GITHUB_1 = "-starthyphen"; // github names cannot start with hyphens
+    public static final String INVALID_GITHUB = "-starthyphen"; // github names cannot start with hyphens
     public static final String INVALID_UNIVERSITY = "here is an invalid university name that should exceed 50 chars";
     public static final String INVALID_MAJOR = "computer@science"; // only alphanumeric in major
     public static final String INVALID_CAP = "6.1"; // CAP should be from 0.0 to 5.0

@@ -1,11 +1,16 @@
 package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_CAP;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DESCRIPTION;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DP;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_GITHUB;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_MAJOR;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_TIME;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_UNIVERSITY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CAP_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DP_AMY;
@@ -26,8 +31,12 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.item.field.Description;
 import seedu.address.model.item.field.DisplayPicture;
 import seedu.address.model.item.field.Email;
+import seedu.address.model.item.field.Github;
+import seedu.address.model.item.field.Major;
 import seedu.address.model.item.field.Name;
 import seedu.address.model.item.field.Phone;
+import seedu.address.model.item.field.Time;
+import seedu.address.model.item.field.University;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.TypicalPerson;
 
@@ -142,4 +151,127 @@ public class JsonAdaptedPersonTest {
                 Email.MESSAGE_CONSTRAINTS,
                 jsonAdaptedPerson::toModelType);
     }
+
+    @Test
+    public void toModelType_missingGithub_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, null, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, Github.class.getSimpleName()),
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidGithub_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, INVALID_GITHUB, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                Github.MESSAGE_CONSTRAINTS,
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_missingUniversity_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_PHONE_AMY, null, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, University.class.getSimpleName()),
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidUniversity_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, INVALID_UNIVERSITY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                University.MESSAGE_CONSTRAINTS,
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_missingMajor_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_PHONE_AMY, VALID_UNIVERSITY_AMY, null,
+                VALID_FROM_AMY, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, Major.class.getSimpleName()),
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidMajor_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, VALID_UNIVERSITY_AMY, INVALID_MAJOR,
+                VALID_FROM_AMY, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                Major.MESSAGE_CONSTRAINTS,
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_missingFrom_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_PHONE_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                null, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, Time.class.getSimpleName()),
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidFrom_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                INVALID_TIME, VALID_TO_AMY, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                Time.MESSAGE_CONSTRAINTS,
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_missingTo_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_PHONE_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, null, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, Time.class.getSimpleName()),
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidTo_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, INVALID_TIME, VALID_CAP_AMY);
+        assertThrows(IllegalValueException.class,
+                Time.MESSAGE_CONSTRAINTS,
+                jsonAdaptedPerson::toModelType);
+    }
+
+    // TODO: Integrate this with Duong's CAP PR
+    /*
+    @Test
+    public void toModelType_missingCap_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_PHONE_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, VALID_TO_AMY, null);
+        assertThrows(NullPointerException.class, // parseDouble(null) results in NPE
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, "cap"),
+                jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidCap_throwsIllegalValueException() {
+        JsonAdaptedPerson jsonAdaptedPerson = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY, VALID_DESCRIPTION_AMY,
+                VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, VALID_UNIVERSITY_AMY, VALID_MAJOR_AMY,
+                VALID_FROM_AMY, VALID_TO_AMY, INVALID_CAP);
+        assertThrows(IllegalValueException.class,
+                "something",
+                jsonAdaptedPerson::toModelType);
+    }
+     */
 }
