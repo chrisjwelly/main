@@ -147,6 +147,14 @@ public class CommandTestUtil {
     public static final String INVALID_TIME = "123-1998"; // Time must be of format MM-YYYY
     public static final String INVALID_WEBSITE = "dfasdsf"; // Must match regex of website
     public static final String INVALID_TAG = "hubby*"; // '*' not allowed in tags
+    public static final String INVALID_DESCRIPTION= ""; // Empty strings are not allowed
+    public static final String INVALID_PHONE = "911a"; // 'a' is not allowed in phones
+    public static final String INVALID_DP = "/Users/Pictures/someone.gif"; // 'gif' extension not allowed
+    public static final String INVALID_GITHUB_1 = "-starthyphen"; // github names cannot start with hyphens
+    public static final String INVALID_UNIVERSITY = "here is an invalid university name that should exceed 50 chars";
+    public static final String INVALID_MAJOR = "computer@science"; // only alphanumeric in major
+    public static final String INVALID_CAP = "6.1"; // CAP should be from 0.0 to 5.0
+
 
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + INVALID_NAME;
@@ -156,7 +164,7 @@ public class CommandTestUtil {
     public static final String INVALID_LEVEL_DESC =
             " " + PREFIX_LEVEL + "basii"; // basic / intermediate / advanced only
     public static final String INVALID_TYPE_DESC = " " + PREFIX_ITEM + "skil"; // ski / int / res / proj only
-    public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + " 911a"; // 'a' not allowed in phones
+    public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + INVALID_PHONE; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + " bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + INVALID_TAG;
