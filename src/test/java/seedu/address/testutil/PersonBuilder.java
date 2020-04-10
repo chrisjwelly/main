@@ -90,7 +90,7 @@ public class PersonBuilder {
      * Sets the {@code Description} of the {@code Person} that we are building.
      */
     public PersonBuilder withDescription(String description) {
-        this.description = new Description(description)
+        this.description = new Description(description);
         return this;
     }
 
