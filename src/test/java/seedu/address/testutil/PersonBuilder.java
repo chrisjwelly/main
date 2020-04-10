@@ -71,10 +71,26 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code DisplayPicture} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDisplayPicture(String displayPicture) {
+        this.displayPicture= new DisplayPicture(displayPicture);
+        return this;
+    }
+
+    /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Description} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDescription(String description) {
+        this.description = new Description(description)
         return this;
     }
 
@@ -91,6 +107,55 @@ public class PersonBuilder {
      */
     public PersonBuilder withEmail(String email) {
         this.email = new Email(email);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Github} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withGithub(String github) {
+        this.github = new Github(github);
+        return this;
+    }
+
+    /**
+     * Sets the {@code University} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withUniversity(String university) {
+        this.university = new University(university);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Major} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMajor(String major) {
+        this.major = new Major(major);
+        return this;
+    }
+
+    /**
+     * Sets the {@code from} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withFrom(String from) {
+        this.from = new Time(from);
+        return this;
+    }
+
+    /**
+     * Sets the {@code to} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withTo(String to) {
+        this.to = new Time(to);
+        return this;
+    }
+
+    // TODO: Make use of Duong's CAP refactoring?
+    /**
+     * Sets the {@code cap} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withCap(double cap) {
+        this.cap = cap;
         return this;
     }
 

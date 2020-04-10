@@ -74,7 +74,6 @@ class JsonAdaptedPerson {
         cap = String.valueOf(source.getCap());
     }
 
-    // TODO: CHECK FOR UNIVERSITY AND DESCRIPTION
     /**
      * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
      */
