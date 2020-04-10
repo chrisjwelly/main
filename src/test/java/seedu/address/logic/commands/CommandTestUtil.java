@@ -147,7 +147,7 @@ public class CommandTestUtil {
     public static final String INVALID_TIME = "123-1998"; // Time must be of format MM-YYYY
     public static final String INVALID_WEBSITE = "dfasdsf"; // Must match regex of website
     public static final String INVALID_TAG = "hubby*"; // '*' not allowed in tags
-    public static final String INVALID_DESCRIPTION= ""; // Empty strings are not allowed
+    public static final String INVALID_DESCRIPTION = ""; // Empty strings are not allowed
     public static final String INVALID_PHONE = "911a"; // 'a' is not allowed in phones
     public static final String INVALID_EMAIL = "example.com"; // missing @
     public static final String INVALID_DP = "/Users/Pictures/someone.gif"; // 'gif' extension not allowed

@@ -74,7 +74,7 @@ public class PersonBuilder {
      * Sets the {@code DisplayPicture} of the {@code Person} that we are building.
      */
     public PersonBuilder withDisplayPicture(String displayPicture) {
-        this.displayPicture= new DisplayPicture(displayPicture);
+        this.displayPicture = new DisplayPicture(displayPicture);
         return this;
     }
 
