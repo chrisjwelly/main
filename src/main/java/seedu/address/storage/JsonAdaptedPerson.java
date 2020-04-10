@@ -184,4 +184,21 @@ class JsonAdaptedPerson {
         return new Person(modelDisplayPicture, modelName, modelDescription, modelPhone, modelEmail,
                 modelGithub, modelUniversity, modelMajor, modelFrom, modelTo, modelCap);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other
+                || (other instanceof JsonAdaptedPerson
+                && dp.equals(((JsonAdaptedPerson) other).dp)
+                && name.equals(((JsonAdaptedPerson) other).name)
+                && description.equals(((JsonAdaptedPerson) other).description)
+                && phone.equals(((JsonAdaptedPerson) other).phone)
+                && email.equals(((JsonAdaptedPerson) other).email)
+                && github.equals(((JsonAdaptedPerson) other).github)
+                && university.equals(((JsonAdaptedPerson) other).university)
+                && major.equals(((JsonAdaptedPerson) other).major)
+                && from.equals(((JsonAdaptedPerson) other).from)
+                && to.equals(((JsonAdaptedPerson) other).to)
+                && cap.equals(((JsonAdaptedPerson) other).cap));
+    }
 }

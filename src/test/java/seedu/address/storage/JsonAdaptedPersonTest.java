@@ -1,6 +1,7 @@
 package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_CAP;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DESCRIPTION;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DP;
@@ -271,5 +272,22 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class,
                 "The cap value must be between 0.0 and 5.0 inclusive.",
                 jsonAdaptedPerson::toModelType);
+    }
+
+    @Test
+    public void equals() {
+        JsonAdaptedPerson jsonAdaptedAmy = new JsonAdaptedPerson(new PersonBuilder(TypicalPerson.AMY).build());
+        JsonAdaptedPerson jsonAdaptedBob = new JsonAdaptedPerson(new PersonBuilder(TypicalPerson.BOB).build());
+
+        JsonAdaptedPerson jsonAdaptedAmyOther = new JsonAdaptedPerson(VALID_DP_AMY, VALID_NAME_AMY,
+                VALID_DESCRIPTION_AMY, VALID_PHONE_AMY, VALID_EMAIL_AMY, VALID_GITHUB_AMY, VALID_UNIVERSITY_AMY,
+                VALID_MAJOR_AMY, VALID_FROM_AMY, VALID_TO_AMY,
+                VALID_CAP_AMY);
+
+        // Two constructor gives the same result
+        assertEquals(jsonAdaptedAmy, jsonAdaptedAmyOther);
+
+        // Different json adapted persons are not equal
+        assertNotEquals(jsonAdaptedAmy, jsonAdaptedBob);
     }
 }
